@@ -1,0 +1,47 @@
+# acad-assignment4.3
+
+Assume that class A extends class B, which extends class C. Also all the three classes implement
+the method test(). How can a method in a class A invoke the test() method defined in class C
+(without creating a new instance of class C).
+
+package assignment4;
+
+public class C {
+	public void test() {
+		System.out.println("Print class C");
+	}
+
+	public static void main(String[] args) {
+		A a = new A();
+		a.test();
+
+	}
+
+}
+
+class B extends C {
+	public void test() {
+		System.out.println("Print class B");
+	}
+}
+
+class A extends B {
+	public void test() {
+		
+		C c = new C();
+		c.test();
+		System.out.println("Print class A");
+
+	}
+}
+
+output
+Print class C
+Print class A
+
+answer is e. C.test();
+Explanation:
+
+we can invoke test() method of class C into class A by creation object of class C 
+i.e. C c = new C();
+      c.test();
